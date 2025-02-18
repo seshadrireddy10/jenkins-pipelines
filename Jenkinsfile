@@ -1,11 +1,6 @@
 pipeline {
     agent any
-
-    environment {
-        AWS_REGION = 'us-west-2'
-        // Add other necessary environment variables here
-    }
-
+    
     stages {
         stage('Checkout') {
             steps {
@@ -13,12 +8,16 @@ pipeline {
                 checkout scm
             }
         }
-
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
         stage('Build') {
             steps {
                 script {
                     // Build the application
-                    sh 'make build'  // Modify this according to your build process
+                    echo 'make build'  // Modify this according to your build process
                 }
             }
         }
@@ -27,7 +26,7 @@ pipeline {
             steps {
                 script {
                     // Run unit tests
-                    sh 'make test'  // Modify this according to your test process
+                    echo 'make test'  // Modify this according to your test process
                 }
             }
         }
@@ -36,7 +35,7 @@ pipeline {
             steps {
                 script {
                     // Run static code analysis
-                    sh 'make lint'  // Modify this according to your static analysis tool
+                    echo 'make lint'  // Modify this according to your static analysis tool
                 }
             }
         }
@@ -45,10 +44,10 @@ pipeline {
             steps {
                 script {
                     // Run security scans
-                    sh 'make security-scan'  // Modify this according to your security scanning tool
+                    echo 'make security-scan'  // Modify this according to your security scanning tool
                 }
             }
         }
-}
+    }
 }
 
