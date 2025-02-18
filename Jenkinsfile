@@ -54,9 +54,10 @@ pipeline {
                 echo 'Pulling...' +  '$GIT_BRANCH' 
                 echo 'build num :  ' + env.BUILD_NUMBER
                 sh 'echo $GIT_BRANCH'
+                echo scmVars.GIT_BRANCH
 
 
-                 echo 'GIT_COMMIT' %GIT_COMMIT% 
+            
                  
             }
         }
