@@ -53,6 +53,7 @@ pipeline {
                 echo 'Bye'
                 echo 'Pulling...' + env.BRANCH_NAME
                 echo 'build num :  ' + env.BUILD_NUMBER
+                sh 'echo $GIT_BRANCH'
             }
         }
     }
