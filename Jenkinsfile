@@ -51,7 +51,7 @@ pipeline {
         stage('End') {
             steps {
                 echo 'Bye'
-                echo 'Pulling...' + env.BRANCH_NAME
+                echo 'Pulling...' +  '$GIT_BRANCH' 
                 echo 'build num :  ' + env.BUILD_NUMBER
                 sh 'echo $GIT_BRANCH'
             }
