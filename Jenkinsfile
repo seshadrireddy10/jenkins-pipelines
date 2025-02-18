@@ -48,6 +48,20 @@ pipeline {
                 }
             }
         }
+        stage ('Invoke_pipelineA') {
+            steps {
+                build job: 'pipeline1', parameters: [
+                string(name: 'param1', value: "value1")
+                ]
+            }
+        }
+        stage('End') {
+            steps {
+                echo 'Bye'
+            }
+        }
     }
 }
 
+
+    
