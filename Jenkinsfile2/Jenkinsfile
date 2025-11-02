@@ -12,6 +12,12 @@ pipeline {
                 echo 'git checkout'
             }
         }
+        stage('build') {
+            steps {
+                echo 'mvn build'
+            }
+        }
     }
 }
+
 
